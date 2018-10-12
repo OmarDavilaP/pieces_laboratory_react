@@ -1,0 +1,33 @@
+{
+  "name": "dynamic-table",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.4",
+    "@fortawesome/free-solid-svg-icons": "^5.3.1",
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "bootstrap": "^4.1.3",
+    "font-awesome": "^4.7.0",
+    "i": "^0.3.6",
+    "joi-browser": "^13.4.0",
+    "moment": "^2.22.2",
+    "npm": "^6.4.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-native-progress": "^3.5.0",
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.5",
+    "redux": "^4.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
+  }
+}
