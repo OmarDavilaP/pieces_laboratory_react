@@ -10,15 +10,14 @@ class ControlPanel extends Component {
 
       <ul className="nav nav-pills control-panel">
         <div className="input-group mb-sm-0">
+          {tableStr.map((item, index) => {
+            return <Input key={index} validate={item.schema} alert={item.alert} />
+          })}
           <li className="nav-item">
             <a className="nav-link active" href="#">
               <i className="fa-shopping-cart" />
             </a>
-          </li>
-
-          {tableStr.map((item, index) => {
-            return <Input key={index} validate={item.schema} alert={item.alert} />
-          })}
+          </li>          
         </div>
       </ul>
     );
