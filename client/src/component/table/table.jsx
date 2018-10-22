@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 
 
-import Th from './th';
-import Cell from './cell'
+import Th from './th/th';
+import Cell from './cell/cell'
 class Table extends Component {
 
     renderCell = (data, tStructure) => {

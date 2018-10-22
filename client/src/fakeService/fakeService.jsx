@@ -1,15 +1,40 @@
 import Joi from 'joi-browser';
 import React from 'react';
 import ProvideTimeHour from "../component/count-hours/count-hours";
-export function getStructure() {
-    return [
+
+class FakeAPI {
+
+    constructor(){
+        this.person=[{
+            id: 1,
+            pieceNumb: "999991",
+            owner: "Marilu",
+            reqBy: "Omar Davila",
+            hrs: 23,
+            inputDate: "2018-09-16 20:18",
+            input: ({ hrs, inputDate }) => {
+                return <ProvideTimeHour date={{ hrs, inputDate }} />;
+            }
+        },
+        {
+            id: 2,
+            pieceNumb: "999999",
+            owner: "Marilu",
+            reqBy: "Pedrito Davila",
+            hrs: 13,
+            inputDate: "2018-09-16 11:18",
+            input: ({ hrs, inputDate }) => {
+                return <ProvideTimeHour date={{ hrs, inputDate }} />;
+            }
+        }];
+      this.structure=[
         {
             id: "id",
             label: "Piece Number",
             path: "pieceNumb",
             sort: false,
             editable: false,
-            schema: { value: Joi.string().required() },
+            schema: { value: Joi.number().required() },
             alert: true
         },
         {
@@ -18,7 +43,7 @@ export function getStructure() {
             path: "owner",
             sort: false,
             editable: false,
-            schema: { pieceNumb: Joi.string().required() },
+            schema: { value: Joi.string().required() },
             alert: true
         },
         {
@@ -27,7 +52,7 @@ export function getStructure() {
             path: "reqBy",
             sort: false,
             editable: false,
-            schema: { pieceNumb: Joi.string().required() },
+            schema: { value: Joi.string().required() },
             alert: true
         },
         {
@@ -36,7 +61,7 @@ export function getStructure() {
             path: "hrs",
             sort: false,
             editable: false,
-            schema: { pieceNumb: Joi.string().required() },
+            schema: { value: Joi.string().required() },
             alert: true
         },
         {
@@ -45,7 +70,7 @@ export function getStructure() {
             path: "inputDate",
             sort: false,
             editable: false,
-            schema: { pieceNumb: Joi.string().required() },
+            schema: { value: Joi.string().required() },
             alert: true
         },
         {
@@ -54,34 +79,20 @@ export function getStructure() {
             path: "input",
             sort: false,
             editable: false,
-            schema: { pieceNumb: Joi.string().required() },
+            schema: { value: Joi.string().required() },
             alert: true
         }
-    ];
-    return test;
+    ];  
+    }
+
+get getStructure(){
+    return this.structure;
 }
 
-export function getApiCall() {
-    return [{
-        id: 1,
-        pieceNumb: "999991",
-        owner: "Marilu",
-        reqBy: "Omar Davila",
-        hrs: 23,
-        inputDate: "2018-09-16 20:18",
-        input: ({ hrs, inputDate }) => {
-            return <ProvideTimeHour date={{ hrs, inputDate }} />;
-        }
-    },
-    {
-        id: 2,
-        pieceNumb: "999999",
-        owner: "Marilu",
-        reqBy: "Pedrito Davila",
-        hrs: 13,
-        inputDate: "2018-09-16 11:18",
-        input: ({ hrs, inputDate }) => {
-            return <ProvideTimeHour date={{ hrs, inputDate }} />;
-        }
-    }];
+getApiCall=()=> {
+    return this.person;
 }
+
+}
+
+export default FakeAPI;

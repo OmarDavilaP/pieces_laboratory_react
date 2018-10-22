@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 //components
 import Table from "./component/table/table";
-import ControlPanel from "./component/common/control-panel";
-import { getStructure, getApiCall } from "./fakeService/fakeService";
+import ControlPanel from "./component/common/control-panel/control-panel";
+import FakeAPI from "./fakeService/fakeService";
 //external librarires
-import moment from "moment";
 import { connect } from "react-redux";
-import Joi from "joi-browser";
 
 class App extends Component {
+
+  constructor(){
+    super();
+    this.myApi= new FakeAPI();
+  }
 
   state = {
     dTable: [],
@@ -16,15 +19,11 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    let test = getStructure();
-    const structure = getStructure();
-    const apiCall = getApiCall();
-    console.log(structure)
-
+    const structure = this.myApi.getStructure;
+    const apiCall = this.myApi.getApiCall();
     this.setState({ dTable: apiCall });
     this.props.handleStructure(structure);
   };
-
   render() {
     const { dTable } = this.state;
     const { tableStr } = this.props;
