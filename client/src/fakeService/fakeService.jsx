@@ -7,7 +7,7 @@ class FakeAPI {
     constructor(){
         this.person=[{
             id: 1,
-            pieceNumb: "999991",
+            pieceNumb: 999991,
             owner: "Marilu",
             reqBy: "Omar Davila",
             hrs: 23,
@@ -18,7 +18,7 @@ class FakeAPI {
         },
         {
             id: 2,
-            pieceNumb: "999999",
+            pieceNumb: 999999,
             owner: "Marilu",
             reqBy: "Pedrito Davila",
             hrs: 13,

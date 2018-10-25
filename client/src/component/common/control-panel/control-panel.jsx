@@ -5,18 +5,33 @@ import Joi from "joi-browser";
 import Input from '../input/input';
 class ControlPanel extends Component {
   state={
-    showAlertMessage:false
-    
-  }
-  handleAlert=(message)=> {
-    this.setState({showAlertMessage:!!message})
-    return <div className="alert alert-danger" role="alert" >{message}</div>;
+    showAlertMessage:false,
+    message:''
   }
 
-  shouldComponentUpdate(prev,post){
-    console.log(post)
-    return false;
+  handleAlert=(message)=>{
+    this.setState({showAlertMessage:!!message,message});
+
   }
+
+  renderAlert=()=><div className="alert alert-danger" role="alert" >{this.state.message}</div>
+
+  renderInput=(tableStr)=>{
+   return tableStr.map((item, index,arr) => {
+      return ( 
+      <Input key={index} 
+       validate={item.schema} 
+       alert={item.alert} 
+       alertMessage={this.handleAlert }             
+      />)
+    })
+  }
+  
+
+  // shouldComponentUpdate(prev,post){
+  //   console.log("?",post)
+  //   return false;
+  // }
   
   renderAddButton(){
     return (
@@ -29,23 +44,14 @@ class ControlPanel extends Component {
   }
   render() {
     const { tableStr } = this.props;
+    console.log(this.state)
     return (
-
       <ul className="nav nav-pills control-panel">
         <div className="input-group mb-sm-0">
-          {tableStr.map((item, index) => {
-            return( 
-            <Input key={index} 
-             validate={item.schema} 
-             alert={item.alert} 
-             alertMessage={this.handleAlert }
-             
-            />)
-
-          })}
+          {this.renderInput(tableStr)}
           {this.renderAddButton()}
-          { this.showAlertMessage && this.handleAlert()}
         </div>
+        { this.state.showAlertMessage && this.renderAlert()}
       </ul>
     );
   }

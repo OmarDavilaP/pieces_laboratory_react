@@ -29,14 +29,13 @@ class Table extends Component {
 
 }
 
-/*const tablePropType=PropTypes.arrayOf(PropTypes.shape({
-    header:PropTypes.string.isRequired,
+
+const tablePropType=PropTypes.arrayOf(PropTypes.shape({
     id:PropTypes.number.isRequired,
-    maxString:PropTypes.number.isRequired,
+    pieceNumb:PropTypes.number.isRequired,
 }));
 
 Table.propTypes={
     data:tablePropType
-}*/
-
+}
 export default Table;

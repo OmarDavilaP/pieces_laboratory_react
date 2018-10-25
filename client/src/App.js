@@ -31,7 +31,7 @@ class App extends Component {
     return (
       <div className="App container">
         <ControlPanel />
-        <Table data={dTable} tStructure={tableStr} />
+        <Table data={dTable} tStructure={tableStr} test={this.objectTest} />
       </div>
     );
   }
