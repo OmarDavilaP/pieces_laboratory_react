@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import AddButton from '../add-button/add-button'
 //external libraries
 import Joi from "joi-browser";
 import Input from '../input/input';
@@ -11,7 +12,6 @@ class ControlPanel extends Component {
 
   handleAlert=(message)=>{
     this.setState({showAlertMessage:!!message,message});
-
   }
 
   renderAlert=()=><div className="alert alert-danger" role="alert" >{this.state.message}</div>
@@ -26,22 +26,6 @@ class ControlPanel extends Component {
       />)
     })
   }
-  
-
-  // shouldComponentUpdate(prev,post){
-  //   console.log("?",post)
-  //   return false;
-  // }
-  
-  renderAddButton(){
-    return (
-      <li className="nav-item">
-        <a className="nav-link active" href="#">
-          <i className="fa-shopping-cart" />
-        </a>
-      </li>     
-    );
-  }
   render() {
     const { tableStr } = this.props;
     console.log(this.state)
@@ -49,7 +33,7 @@ class ControlPanel extends Component {
       <ul className="nav nav-pills control-panel">
         <div className="input-group mb-sm-0">
           {this.renderInput(tableStr)}
-          {this.renderAddButton()}
+          {<AddButton/>}
         </div>
         { this.state.showAlertMessage && this.renderAlert()}
       </ul>
